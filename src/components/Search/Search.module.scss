@@ -1,0 +1,49 @@
+.pizzas_search {
+	position: relative;
+	display: inline-block;
+	padding: 0 20px 0 10px;
+}
+
+.input {
+	padding: 12px 20px 12px 40px;
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	border-radius: 10px;
+	transition: all 0.3s ease 0s;
+
+	&::placeholder {
+		font-size: 15px;
+	}
+	&:focus {
+		box-shadow: 1px 1px 7px -2px rgb(247, 193, 45);
+	}
+}
+
+.icon {
+	position: absolute;
+	opacity: 0.3;
+	width: 20px;
+	height: 20px;
+	bottom: 50%;
+	transform: translate(0, 50%);
+	left: 20px;
+}
+
+.close_icon {
+	opacity: 0.3;
+	position: absolute;
+	width: 17px;
+	height: 17px;
+	bottom: 50%;
+	transform: translate(0, 50%);
+	right: 35px;
+	cursor: pointer;
+	transition: all 0.3s ease 0s;
+
+	&:hover {
+		stroke: rgb(255, 0, 0);
+		stroke-width: 3px;
+	}
+	&:active {
+		stroke: rgb(0, 0, 0);
+	}
+}

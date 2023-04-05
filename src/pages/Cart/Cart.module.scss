@@ -1,0 +1,14 @@
+.content {
+	padding: 40px 0;
+
+	&__items {
+		display: block;
+	}
+
+	&__top {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: space-between;
+	}
+}

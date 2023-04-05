@@ -1,0 +1,47 @@
+$sizeMedia: 767px;
+
+.pizza__container {
+	display: flex;
+	justify-content: space-around;
+	@media (max-width: $sizeMedia) {
+		flex-wrap: wrap;
+	}
+}
+
+.pizza__block {
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	max-width: 380px;
+	flex: 1 0 auto;
+	margin-right: 40px;
+
+	@media (max-width: $sizeMedia) {
+		margin: 0 0 40px 0;
+	}
+}
+
+.pizza__description {
+	display: flex;
+	flex-direction: column;
+
+	max-width: 650px;
+	letter-spacing: 1px;
+	word-spacing: 2px;
+	line-height: 1.86;
+
+	h2 {
+		text-align: center;
+		margin-bottom: 17px;
+	}
+}
+
+.description {
+	flex: 1 1 auto;
+}
+
+.button__back {
+	font-size: 16px;
+	display: block;
+	align-self: flex-start;
+}
