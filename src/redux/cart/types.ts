@@ -5,7 +5,7 @@ export type productItem = {
 	price: number
 	type: number
 	size: number
-	count?: number
+	count: number
 }
 
 export interface cartSliceState {

@@ -16,7 +16,7 @@ import { fetchPizzas } from '../redux/pizzas/async'
 import { status as StatusRDX } from '../redux/pizzas/types'
 import { RootState, useAppDispatch } from '../redux/store'
 import HomeReject from './HomeReject'
-import { filterBy } from '../redux/filter/types'
+import { filterBy, filterSliceState } from '../redux/filter/types'
 
 const Home = () => {
 	const navigate = useNavigate()
@@ -46,14 +46,13 @@ const Home = () => {
 		if (window.location.search) {
 			const params = qs.parse(window.location.search.substring(1)) as unknown as filterBy
 			const sort = sortList.find((obj) => obj.sort === params.sort)
-			console.log(sort)
 
 			dispatch(
 				setFilters({
 					categoryId,
 					currentPage,
 					sort: sort || sortList[0],
-				})
+				} as filterSliceState)
 			)
 			isSearch.current = true
 		}
