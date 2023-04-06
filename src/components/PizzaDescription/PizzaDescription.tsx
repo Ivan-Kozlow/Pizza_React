@@ -4,14 +4,17 @@ import { Link, useNavigate, useParams } from 'react-router-dom'
 import cls from './PizzaDescription.module.scss'
 
 import { useDispatch, useSelector } from 'react-redux'
-import { addProduct } from '../../redux/cart/Slice'
-import { productItem } from '../../redux/cart/types'
 import { RootState } from '../../redux/store'
 import { typeNames } from '../PizzaItem/PizzaItem'
+
+import BtnAddPizza from '../PizzaItem/Btn`s/BtnAddPizza'
+import BtnToCart from '../PizzaItem/Btn`s/BtnToCart'
 
 const PizzaDescription: React.FC = () => {
 	const { id } = useParams()
 	const [pizza, setPizza] = React.useState<{
+		activeSize: number
+		activeType: number
 		imageUrl: string
 		title: string
 		price: number
@@ -40,23 +43,10 @@ const PizzaDescription: React.FC = () => {
 		fetchPizza()
 	}, [id])
 
-	const onclickAdd = () => {
-		const product: productItem = {
-			id,
-			title: pizza.title,
-			price: pizza.price,
-			imageUrl: pizza.imageUrl,
-			type: pizza.types[activeType],
-			size: pizza.sizes[activeSize],
-			count: 0,
-		}
-		dispatch(addProduct(product))
-	}
-
-	const addedCount = currentPizza[currentPizza.length - 1] ? currentPizza[currentPizza.length - 1].count : 0
+	const addedCount = currentPizza[currentPizza.length - 1] && currentPizza.find((obj) => obj.id == id) ? 1 : 0
 
 	if (!pizza) {
-		return <>"Загрузка..."</>
+		return <>Загрузка...</>
 	}
 
 	return (
@@ -88,16 +78,20 @@ const PizzaDescription: React.FC = () => {
 				</div>
 				<div className='pizza-block__bottom'>
 					<div className='pizza-block__price'>от {pizza.price} ₽</div>
-					<button onClick={onclickAdd} className='button button--outline button--add'>
-						<svg width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'>
-							<path
-								d='M10.8 4.8H7.2V1.2C7.2 0.5373 6.6627 0 6 0C5.3373 0 4.8 0.5373 4.8 1.2V4.8H1.2C0.5373 4.8 0 5.3373 0 6C0 6.6627 0.5373 7.2 1.2 7.2H4.8V10.8C4.8 11.4627 5.3373 12 6 12C6.6627 12 7.2 11.4627 7.2 10.8V7.2H10.8C11.4627 7.2 12 6.6627 12 6C12 5.3373 11.4627 4.8 10.8 4.8Z'
-								fill='white'
-							></path>
-						</svg>
-						<span>Добавить</span>
-						{addedCount > 0 && <i>{addedCount}</i>}
-					</button>
+					{addedCount === 0 ? (
+						<BtnAddPizza
+							id={id}
+							imageUrl={pizza.imageUrl}
+							title={pizza.title}
+							price={pizza.price}
+							sizes={pizza.sizes}
+							types={pizza.types}
+							activeType={activeType}
+							activeSize={activeSize}
+						/>
+					) : (
+						<BtnToCart />
+					)}
 				</div>
 			</div>
 			<div className={cls.pizza__description}>

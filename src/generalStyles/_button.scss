@@ -8,7 +8,6 @@
 	cursor: pointer;
 	transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
 	border: 1px solid transparent;
-	@include noselect();
 
 	&,
 	span {
@@ -25,7 +24,7 @@
 	&:hover {
 		background-color: darken(#fe5f1e, 8%);
 	}
-	
+
 	&:focus {
 		background-color: darken(#fe5f1e, 26%);
 	}

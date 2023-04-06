@@ -66,6 +66,23 @@
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
+
+		.button {
+			font-size: 15px;
+
+			&__too-cart {
+				color: gray;
+				border-color: gray;
+				svg {
+					margin-left: 6px;
+					margin-right: -4px;
+					margin-bottom: -2px;
+					path {
+						fill: #f3f3f3;
+					}
+				}
+			}
+		}
 	}
 
 	&__price {

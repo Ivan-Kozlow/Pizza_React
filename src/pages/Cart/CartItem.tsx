@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { typeNames } from '../../components/PizzaItem/PizzaItem'
 
 import { addProduct, minusProduct, removeProduct } from '../../redux/cart/Slice'
@@ -39,11 +40,13 @@ const CartItem: React.FC<pizzaItem> = ({ id, price, type, title, count, size, im
 
 	return (
 		<div className='cart__item'>
-			<div className='cart__item-img'>
+			<Link to={`../pizza/${id}`} className='cart__item-img'>
 				<img className='pizza-block__image' src={imageUrl} alt='Pizza' />
-			</div>
+			</Link>
 			<div className='cart__item-info'>
-				<h3>{title}</h3>
+				<Link to={`../pizza/${id}`}>
+					<h3>{title}</h3>
+				</Link>
 				<p>
 					{typeNames[type]}, {size} см.
 				</p>
