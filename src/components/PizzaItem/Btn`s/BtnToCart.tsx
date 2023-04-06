@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 const BtnToCart = () => {
 	return (
 		<Link to={'../cart'} className='button button--outline button__too-cart'>
-			В корзину
+			В корзине
 			<svg fill='none' height='16' viewBox='0 0 30 27' width='20'>
 				<path
 					d='M1.39999 1.70001H6.60001'

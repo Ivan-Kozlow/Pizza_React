@@ -42,15 +42,19 @@ body {
 }
 
 .container {
-	width: 90%;
+	width: 91%;
 	margin: 0 auto;
+	@media (max-width: 330px) {
+		width: 95%;
+	}
 
 	&--cart {
 		max-width: 820px;
-		margin: 90px auto;
+		margin: 90px auto 40px;
 
 		.content__title {
 			margin: 0;
+			margin-right: 30px;
 		}
 	}
 }
@@ -95,6 +99,10 @@ body {
 			font-size: 18px;
 		}
 
+		svg {
+			flex: 1 0 auto;
+		}
+
 		span,
 		svg,
 		path {
@@ -113,20 +121,55 @@ body {
 				color: darken($color: #b6b6b6, $amount: 50);
 			}
 		}
+
+		@media (max-width: 525px) {
+			span {
+				font-size: 0;
+			}
+			svg {
+				width: 30px;
+				height: 30px;
+			}
+		}
 	}
 
 	&__item {
 		display: flex;
 		width: 100%;
-		border-top: 1px solid #f6f6f6;
+		border-top: 2px solid #f6f6f6;
 		padding-top: 30px;
 		margin-top: 30px;
+
+		@media (min-width: 800px) {
+			display: grid;
+			grid-template-columns: 95px minmax(120px, 1fr) minmax(100px, 128px) minmax(70px, 149px) 28px;
+		}
+
+		@media (max-width: 799px) {
+			flex-wrap: wrap;
+
+			&-img,
+			&-info {
+				margin-bottom: 25px;
+			}
+			&-info {
+				margin-right: 30%;
+				@media (max-width: 408px) {
+					margin-right: 0;
+				}
+			}
+
+			&-price {
+				align-self: flex-end;
+				margin-right: 30px;
+				margin-left: auto;
+			}
+		}
 
 		&-img {
 			display: flex;
 			align-items: center;
 			margin-right: 15px;
-			width: 10%;
 
 			img {
 				width: 80px;
@@ -138,7 +181,7 @@ body {
 			display: flex;
 			flex-direction: column;
 			justify-content: center;
-			width: 40%;
+			flex: 1 1 35%;
 
 			h3 {
 				font-weight: bold;
@@ -156,8 +199,11 @@ body {
 		&-count {
 			display: flex;
 			align-items: center;
+			margin-right: 30px;
 			justify-content: space-between;
-			width: 13%;
+			@media (max-width: 727px) {
+				margin-right: 10px;
+			}
 
 			&-minus {
 				svg {
@@ -169,6 +215,11 @@ body {
 
 			b {
 				font-size: 22px;
+				margin: 0 8px;
+
+				@media (min-width: 320px) {
+					margin: 0 13px;
+				}
 			}
 		}
 
@@ -176,7 +227,10 @@ body {
 			display: flex;
 			align-items: center;
 			justify-content: center;
-			width: 33%;
+			margin-right: 15px;
+			@media (max-width: 290px) {
+				margin-right: 9px;
+			}
 
 			b {
 				font-weight: bold;
@@ -189,7 +243,6 @@ body {
 			display: flex;
 			align-items: center;
 			justify-content: flex-end;
-			width: 4%;
 
 			.button {
 				border-color: darken($color: #f6f6f6, $amount: 10);
@@ -226,7 +279,15 @@ body {
 			display: flex;
 			justify-content: space-between;
 
+			@media (max-width: 655px) {
+				flex-wrap: wrap;
+				span:first-child {
+					margin-right: 30px;
+				}
+			}
+
 			span {
+				margin-bottom: 10px;
 				font-size: 22px;
 
 				&:last-of-type {
@@ -241,6 +302,10 @@ body {
 			display: flex;
 			justify-content: space-between;
 			margin-top: 40px;
+
+			@media (max-width: 420px) {
+				// flex-wrap: wrap;
+			}
 
 			.go-back-btn {
 				display: flex;
@@ -280,6 +345,7 @@ body {
 				font-weight: 600;
 				width: 210px;
 				padding: 16px;
+				margin-left: 20px;
 			}
 		}
 	}
