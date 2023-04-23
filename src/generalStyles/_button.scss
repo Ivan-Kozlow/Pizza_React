@@ -98,6 +98,16 @@
 	}
 
 	&--add {
+		@media (max-width: 1244px) and (min-width: 1124px) {
+			padding: 9px 15px;
+		}
+		@media (max-width: 954px) and (min-width: 836px) {
+			padding: 9px 15px;
+		}
+		@media (max-width: 600px) and (min-width: 548px) {
+			padding: 9px 15px;
+		}
+
 		svg {
 			margin-right: 2px;
 		}
@@ -136,6 +146,7 @@
 		align-items: center;
 		line-height: 23px;
 		padding: 12px 25px;
+		min-width: 138px;
 
 		svg {
 			margin-right: 8px;

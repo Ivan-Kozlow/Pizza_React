@@ -3,7 +3,7 @@ import React from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import cls from './PizzaDescription.module.scss'
 
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { RootState } from '../../redux/store'
 import { typeNames } from '../PizzaItem/PizzaItem'
 
@@ -27,7 +27,6 @@ const PizzaDescription: React.FC = () => {
 
 	const currentPizza = useSelector((state: RootState) => state.cart.products)
 
-	const dispatch = useDispatch()
 	const navigate = useNavigate()
 
 	React.useEffect(() => {
@@ -43,7 +42,7 @@ const PizzaDescription: React.FC = () => {
 		fetchPizza()
 	}, [id])
 
-	const addedCount = currentPizza[currentPizza.length - 1] && currentPizza.find((obj) => obj.id == id) ? 1 : 0
+	const addedCount = currentPizza[currentPizza.length - 1] && currentPizza.find((obj) => obj.id === id) ? 1 : 0
 
 	if (!pizza) {
 		return <>Загрузка...</>

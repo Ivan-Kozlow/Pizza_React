@@ -3,14 +3,22 @@
 	padding: 20px 0;
 
 	.container {
-		display: flex;
+		display: grid;
 		align-items: center;
-		justify-content: space-between;
+		grid-template-columns: repeat(3, minmax(80px, 1fr));
 
 		@media (max-width: 813px) {
-			flex-direction: column;
+			.header__logo {
+				grid-column: 1 / -1;
+			}
+
 			.search__form {
 				padding: 10px 0;
+				grid-column: span 2;
+
+				@media (max-width: 480px) {
+					grid-column: span 3;
+				}
 			}
 
 			.header__logo {
@@ -39,6 +47,12 @@
 		}
 	}
 	&__cart {
-		align-self: flex-end;
+		justify-self: end;
+		max-width: max-content;
+		grid-column: -2 / -1;
+
+		@media (max-width: 480px) {
+			grid-column: -3 / -1;
+		}
 	}
 }
