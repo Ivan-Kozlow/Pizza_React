@@ -16,7 +16,8 @@
 				padding: 10px 0;
 				grid-column: span 2;
 
-				@media (max-width: 480px) {
+				@media (max-width: 570px) {
+					height: max-content;
 					grid-column: span 3;
 				}
 			}
@@ -51,7 +52,7 @@
 		max-width: max-content;
 		grid-column: -2 / -1;
 
-		@media (max-width: 480px) {
+		@media (max-width: 568px) {
 			grid-column: -3 / -1;
 		}
 	}
